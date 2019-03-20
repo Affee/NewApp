@@ -1,10 +1,49 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View,Image,TextInput,TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View,Image,TextInput,TouchableOpacity,Alert} from 'react-native';
 
 
 
 type Props = {};
 export default class Login extends Component<Props> {
+    username = '';
+    password = '';
+    //账号框文本变化的回调函数，该回调函数接收的参数为：输入框当前文本内容
+    //通过绑定此函数给onChangeText就实现实时更新username变量
+    onUsernameChanged = (newUsername) => {
+        console.log(newUsername);//运行后可以在输入框随意输入内容并且查看log验证！
+        this.username = newUsername;
+    };
+
+    //密码框文本变化的回调函数，该回调函数接收的参数为：输入框当前文本内容
+    //通过绑定此函数给onChangeText就实现实时更新password变量
+    onPasswordChanged = (newPassword) => {
+        console.log(newPassword);//运行后可以在输入框随意输入内容并且查看log验证！
+        this.password = newPassword;
+    };
+
+    login = () => {
+        if (this.username == 'admin' && this.password == '123') {
+            Alert.alert(
+                '登陆',
+                'My Alert Msg',
+                [
+                    {text: '登陆成功', onPress: () => console.log('OK Pressed')},
+                ],
+                { cancelable: false }
+            )
+        }else {
+            Alert.alert(
+                'Alert Title',
+                'My Alert Msg',
+                [
+                    {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                    {text: 'OK', onPress: () => console.log('OK Pressed')},
+                ],
+                { cancelable: false }
+            )
+        }
+    };
+
     render() {
         return (
             <View
@@ -16,6 +55,7 @@ export default class Login extends Component<Props> {
                         source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
                     />
                     <TextInput
+                        onChangeText={this.onUsernameChanged}//绑定文本变化的回调函数
                         style={styles.input}
                         placeholderTextColor={'#ffd7cf'}//提示文本的颜色
                         placeholder={'请输入手机号码'}//提示文本内容
@@ -29,6 +69,7 @@ export default class Login extends Component<Props> {
                         source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
                     />
                     <TextInput
+                        onChangeText={this.onPasswordChanged}//绑定文本变化的回调函数
                         style={styles.input}
                         placeholderTextColor={'#ffd7cf'}//提示文本的颜色
                         placeholder={'请输入密码'}//提示文本内容
@@ -36,6 +77,7 @@ export default class Login extends Component<Props> {
                     />
                 </View>
                 <TouchableOpacity
+                    onPress = {this.login}//绑定点击事件
                     style={styles.button}>
                     <Text
                         style={styles.btText}>登录</Text>
