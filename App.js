@@ -22,7 +22,7 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>欢迎来到英雄联盟</Text>
-        <Text style={styles.instructions}>欢迎来到德莱联盟</Text>
+        <Text style={styles.instructions}>欢迎来到德莱联盟 aaa</Text>
         <Text style={styles.instructions}>{instructions}</Text>
       </View>
     );
