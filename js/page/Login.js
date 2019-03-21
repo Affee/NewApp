@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View,Image,TextInput,TouchableOpacity,Alert} from 'react-native';
-
-
+import {StyleSheet, Text, View,Image,TextInput,TouchableOpacity,Alert,Navigator} from 'react-native';
 
 type Props = {};
 export default class Login extends Component<Props> {
@@ -22,7 +20,8 @@ export default class Login extends Component<Props> {
     };
 
     login = () => {
-        if (this.username == 'admin' && this.password == '123') {
+        if (this.username == 'Admin' && this.password == '123') {
+
             Alert.alert(
                 '登陆',
                 'My Alert Msg',
