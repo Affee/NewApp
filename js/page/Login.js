@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View,Image,TextInput,TouchableOpacity,Alert,Navigator} from 'react-native';
-
+import Main from '../page/Main'
+import TabBar from '../component/TabBar'
 type Props = {};
 export default class Login extends Component<Props> {
     username = '';

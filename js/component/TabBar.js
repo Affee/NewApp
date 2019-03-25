@@ -15,7 +15,7 @@ const dataSoure = [
             ]
 var navigation = null;
 type Props = {};
-export default class Home extends Component<Props> {
+export default class TabBar extends Component<Props> {
     constructor(props){
         super(props);
         navigation = this.props.navigation;
@@ -66,5 +66,9 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         margin: 10,
+    },
+    tabIcon:{
+        width:23,
+        height:23,
     }
 });
